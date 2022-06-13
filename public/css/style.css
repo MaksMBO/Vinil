@@ -1968,4 +1968,30 @@ img[alt="click_active"] {
 .nothing {
   display: none;
 }
+.hidden {
+  display: none;
+}
+.my_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.relative {
+  border: 2px black;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+.showMore {
+  text-decoration: none;
+  text-align: center;
+  padding: 17px 42px;
+  border: solid 1px #000000;
+  border-radius: 50px;
+  color: #000000;
+  background: #FFFFFF;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 

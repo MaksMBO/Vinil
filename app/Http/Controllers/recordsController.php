@@ -13,7 +13,7 @@ class recordsController extends Controller
     public function recordsAll()
     {
         return view("records", ['records' => Record::join('artists', 'records.artist', '=', 'artists.id_artist')
-            ->join('albums', 'records.album', '=', 'albums.id_albums')->take(16)->get(),
+            ->join('albums', 'records.album', '=', 'albums.id_albums')->paginate(8),
             'checkGenre' => array(),
             'start' =>  NULL,
             'end' =>  NULL,
@@ -33,14 +33,14 @@ class recordsController extends Controller
 
 
         if(isset($genre)) {
-            $idGenreTable = Genre::whereIn('genreName', $genre)->get();
+            $idGenreTable = Genre::whereIn('genreName', $genre)->paginate(8);
 
             $idGenre = array();
             foreach ($idGenreTable as $item) {
                 $idGenre[] = $item->id;
             }
 
-            $idAlbumTable = AlbumGenre::select('albumId')->whereIn('genreId', $idGenre)->get();
+            $idAlbumTable = AlbumGenre::select('albumId')->whereIn('genreId', $idGenre)->paginate(8);
 
             $idAlbum = array();
             foreach ($idAlbumTable as $item) {
@@ -58,7 +58,7 @@ class recordsController extends Controller
                 ->where('price', '<', $end)
                 ->where('price', '>', $start)
                 ->where('amount', '>=', $amount)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($start) and isset($end) and isset($genre)){
@@ -67,7 +67,7 @@ class recordsController extends Controller
                 ->whereIn("records.album", $idAlbum)
                 ->where('price', '<', $end)
                 ->where('price', '>', $start)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($start) and isset($end) and isset($amount)){
@@ -76,7 +76,7 @@ class recordsController extends Controller
                 ->where('amount', '>=', $amount)
                 ->where('price', '<', $end)
                 ->where('price', '>', $start)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($start) and isset($amount) and isset($genre)){
@@ -85,7 +85,7 @@ class recordsController extends Controller
                 ->whereIn("records.album", $idAlbum)
                 ->where('price', '>', $start)
                 ->where('amount', '>=', $amount)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($amount) and isset($end) and isset($genre)){
@@ -94,7 +94,7 @@ class recordsController extends Controller
                 ->where('amount', '>=', $amount)
                 ->where('price', '<', $end)
                 ->whereIn("records.album", $idAlbum)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($start) and isset($genre)) {
@@ -102,7 +102,7 @@ class recordsController extends Controller
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->whereIn("records.album", $idAlbum)
                 ->where('price', '>', $start)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($end) and isset($genre)) {
@@ -110,7 +110,7 @@ class recordsController extends Controller
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->whereIn("records.album", $idAlbum)
                 ->where('price', '<', $end)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($start) and isset($end)){
@@ -118,7 +118,7 @@ class recordsController extends Controller
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->where('price', '<', $end)
                 ->where('price', '>', $start)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($end) and isset($amount)) {
@@ -126,7 +126,7 @@ class recordsController extends Controller
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->where('amount', '>=', $amount)
                 ->where('price', '<', $end)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($start) and isset($amount)) {
@@ -134,7 +134,7 @@ class recordsController extends Controller
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->where('amount', '>=', $amount)
                 ->where('price', '>', $start)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($genre) and isset($amount)) {
@@ -142,40 +142,40 @@ class recordsController extends Controller
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->where('amount', '>=', $amount)
                 ->whereIn("records.album", $idAlbum)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($genre)) {
             $result = Record::join('artists', 'records.artist', '=', 'artists.id_artist')
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->whereIn("records.album", $idAlbum)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($start)) {
             $result = Record::join('artists', 'records.artist', '=', 'artists.id_artist')
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->where('price', '>', $start)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($end)) {
             $result = Record::join('artists', 'records.artist', '=', 'artists.id_artist')
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->where('price', '<', $end)
-                ->get();
+                ->paginate(8);
         }
 
         elseif (isset($amount)) {
             $result = Record::join('artists', 'records.artist', '=', 'artists.id_artist')
                 ->join('albums', 'records.album', '=', 'albums.id_albums')
                 ->where('amount', '>=', $amount)
-                ->get();
+                ->paginate(8);
         }
 
         else {
             $result = Record::join('artists', 'records.artist', '=', 'artists.id_artist')
-                ->join('albums', 'records.album', '=', 'albums.id_albums')->take(16)->get();
+                ->join('albums', 'records.album', '=', 'albums.id_albums')->take(16)->paginate(8);
         }
 
 
@@ -191,7 +191,7 @@ class recordsController extends Controller
         return view("information_page", ['record' => Record::join('artists', 'records.artist', '=', 'artists.id_artist')
             ->join('albums', 'records.album', '=', 'albums.id_albums')
             ->where('id', '=', $id)
-            ->get(),
+            ->paginate(8),
             'anothers' => Record::join('artists', 'records.artist', '=', 'artists.id_artist')
             ->join('albums', 'records.album', '=', 'albums.id_albums')
             ->where('id', '<>', $id)
@@ -205,7 +205,7 @@ class recordsController extends Controller
 
         return view("records", ['records' => Record::join('artists', 'records.artist', '=', 'artists.id_artist')
             ->join('albums', 'records.album', '=', 'albums.id_albums')
-            ->whereRaw("`title` LIKE '$search' OR `name` LIKE '$search'")->get(),
+            ->whereRaw("`title` LIKE '$search' OR `name` LIKE '$search'")->paginate(8),
             'checkGenre' => array(),
             'start' =>  NULL,
             'end' =>  NULL,
