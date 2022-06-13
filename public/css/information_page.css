@@ -1,0 +1,85 @@
+.back_to_shop {
+  color: black;
+  margin-top: 60px;
+}
+.suggestion {
+  display: flex;
+  justify-content: center;
+  max-width: 440px;
+  margin-top: 22px;
+}
+.suggestion img {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+img[alt="main__photo"] {
+  width: 440px;
+  height: 440px;
+}
+img[alt="first__photo"],
+img[alt="second__photo"] {
+  width: 70px;
+  height: 70px;
+}
+.title__sell {
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+}
+.subtitle__sell {
+  margin: 40px 0 0;
+  max-height: 24px;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+}
+.divbutton__sell {
+  margin-top: 43px;
+}
+.button__sell {
+  width: 140px;
+  height: 39px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 110px;
+  text-decoration: none;
+}
+.sell_link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+}
+.sell .col-6 {
+  margin-left: 100px;
+}
+.tracklist {
+  margin-top: 60px;
+}
+.sell {
+  margin-top: 60px;
+}
+.offers {
+  margin-top: 106px;
+}
+.offers .h1 {
+  font-weight: 600;
+  font-size: 20px;
+}
+.offers .price__number {
+  font-weight: 400;
+  font-size: 15px;
+}
+.sell_about {
+  margin-top: 100px;
+}
+.offers img {
+  width: 259.91px;
+  height: 250px;
+}
+.for_card {
+  text-decoration: none;
+  color: #000;
+}
+
