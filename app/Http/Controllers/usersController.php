@@ -37,6 +37,14 @@ class usersController extends Controller
             return "incorrectly";
         }
 
+        $sectionUser = Users::where('login', '=', $request->input("login"))->where('password', '=', md5($request->input("password")))->get()[0];
+
+        session(['user' => [
+            'id' => $sectionUser->id,
+            'login' => $sectionUser->login,
+            'email' => $sectionUser->email
+        ]]);
+
         return redirect()->route('lending');
 
 

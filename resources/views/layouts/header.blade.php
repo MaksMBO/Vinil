@@ -14,14 +14,46 @@
                 @yield('footers')
             </nav>
 
-            <div class="basket__logo">
-                <img src="{{asset('image/svg/icon_basket.svg')}}" alt="Basket" class="basket__logo-pic">
+            <div class="dropdown">
 
-                <div class="price">
-                    <a href="#!" class="basket-link">0.00 грн</a>
-                    <img src="{{asset('image/svg/basket-polygon.svg')}}" alt="Basket polygon" class="basket-polygon-pic">
+                <button onclick="myFunction()" class="dropbtn">
+                    <div class="basket__logo">
+                        <img src="{{asset('image/svg/icon_basket.svg')}}" alt="Basket" class="basket__logo-pic">
+
+                        <div class="price">
+                            <p class="basket-link">0.00 грн</p>
+                            <img src="{{asset('image/svg/basket-polygon.svg')}}" alt="Basket polygon"
+                                 class="basket-polygon-pic">
+                        </div>
+                    </div>
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#!"> {{ session('user')['login'] }}</a>
                 </div>
+
             </div>
+
+
+            <script>
+
+                function myFunction() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+                window.onclick = function (event) {
+                    if (!event.target.matches('.dropbtn').matches('.basket__logo-pic').matches('.price')) {
+
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                            var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
+                        }
+                    }
+                }
+            </script>
         </div>
     </div>
 </header>
@@ -31,7 +63,8 @@
         <div class="container__mobile">
             <div class="new__logo">
                 <a href="#!" class="new_header__logo-link">
-                    <img src="{{asset('image/svg/картинки/new__logo.png')}}" alt="Vinyl shop" class="new_header__logo-pic">
+                    <img src="{{asset('image/svg/картинки/new__logo.png')}}" alt="Vinyl shop"
+                         class="new_header__logo-pic">
                 </a>
             </div>
 
@@ -40,7 +73,6 @@
             </div>
         </div>
     </div>
-
 
 
     <div class="divvv">
@@ -68,7 +100,8 @@
 
                     <div class="price">
                         <a href="#!" class="basket-link">0.00 грн</a>
-                        <img src="{{asset('image/svg/basket-polygon.svg')}}" alt="Basket polygon" class="basket-polygon-pic">
+                        <img src="{{asset('image/svg/basket-polygon.svg')}}" alt="Basket polygon"
+                             class="basket-polygon-pic">
                     </div>
                 </div>
                 <hr width="100%" size="2" color="#AFAFAF" class="lines-first"/>
