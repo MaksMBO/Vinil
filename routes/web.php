@@ -48,3 +48,7 @@ Route::post('records/search', 'recordsController@search')->name('recordsSearch')
 Route::get('Contact.blade.php', function () {
     return view('contact');
 })->name('footer');
+
+Route::get('exit', 'usersController@exit')->name('exit');
+
+Route::get('basket', 'basketController@basket')->name('basket');

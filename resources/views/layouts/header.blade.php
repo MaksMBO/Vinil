@@ -28,7 +28,17 @@
                     </div>
                 </button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#!"> {{ session('user')['login'] }}</a>
+
+                    @if (session('user') !== null)
+                        <a href="" class="my__linkss">{{ session('user')['login'] }}</a>
+                        <a href="{{ route("basket") }}" class="my__linkss-default">Кошик</a>
+                        <a href="{{ route('exit') }}" class="exit__link-exit">Вихід з системи</a>
+                    @else
+                        <a href="{{ route('login') }}" class="exit__link-input">Будь ласка, ввійдіть в систему</a>
+                    @endif
+
+
+
                 </div>
 
             </div>

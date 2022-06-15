@@ -28,9 +28,13 @@ session_start();
         <label>Пароль</label>
         <input name="password" type="password" placeholder="Введіть пароль"></input>
         <button type="submit" class="come__in">Ввійти</button>
-        <p class="registration__click">В вас немає акаунта? - <a href="{{ route('register') }}">зареєструйтесь</a>!</p>
+{{--        <p class="registration__click">В вас немає акаунта? - <a href="{{ route('register') }}">зареєструйтесь</a>!</p>--}}
     </form>
 
+    <button type="submit" class="come__in-another">
+        <a href="{{ route('lending') }}" class="linenn"><p class="in_site">Ввійти в режимі перегляду</a>
+    </button>
+    <p class="registration__click">В вас немає акаунта? - <a href="{{ route('register') }}" class="linenn-1">зареєструйтесь</a>!</p>
 </div>
 
 </body>

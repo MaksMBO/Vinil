@@ -36,8 +36,11 @@
         <label>Підтвердження паролю</label>
         <input name="password_confirm" type="password" placeholder="Повторіть введений пароль">
         <button type="submit" class="come__in">Зареєструватись</button>
-        <p class="registration__click">В вас вже є акаунт? - <a href="{{ route('login') }}">авторизуйтесь</a>!</p>
     </form>
+    <button type="submit" class="come__in-another">
+        <a href="{{ route('lending') }}" class="linenn"><p class="in_site">Ввійти в режимі перегляду</a>
+    </button>
+    <p class="registration__click">В вас вже є акаунт? - <a href="{{ route('login') }}" class="linenn-1">авторизуйтесь</a>!</p>
 </div>
 </body>
 </html>

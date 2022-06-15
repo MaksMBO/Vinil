@@ -49,4 +49,10 @@ class usersController extends Controller
 
 
     }
+
+    public function exit() {
+        session(['user' => null]);
+
+        return redirect()->route('login');
+    }
 }
