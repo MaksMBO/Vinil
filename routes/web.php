@@ -52,3 +52,8 @@ Route::get('Contact.blade.php', function () {
 Route::get('exit', 'usersController@exit')->name('exit');
 
 Route::get('basket', 'basketController@basket')->name('basket');
+
+Route::post('addToBasket/{id}','basketController@add')->name('addToBasket');
+
+Route::post('dellBuy', 'basketController@dellBuy')->name('dellBuy');
+Route::post('dellOne/{id}', 'basketController@dellOne')->name('dellOne');
