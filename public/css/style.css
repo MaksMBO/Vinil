@@ -2108,7 +2108,7 @@ img[alt="click_active"] {
   border-radius: 5px;
 }
 .all__basket {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .icon__basket {
   width: 200px;
@@ -2253,5 +2253,12 @@ img[alt="click_active"] {
     justify-content: center;
     align-items: center;
   }
+}
+.row-cols-3 .col {
+  display: flex;
+  justify-content: center;
+}
+.subPhoto {
+  width: 75px;
 }
 

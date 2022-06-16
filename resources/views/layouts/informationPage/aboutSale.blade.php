@@ -5,10 +5,10 @@
                 <img src="data:image/png;base64,{!! base64_encode($record[0]->mainPhoto) !!}" alt="main__photo">
                 <div class="suggestion">
                     <a href="#!" @if(!isset($record[0]->secondPhoto)) class="nothing" @endif>
-                        <img src="data:image/png;base64,{!! base64_encode($record[0]->secondPhoto) !!}">
+                        <img src="data:image/png;base64,{!! base64_encode($record[0]->secondPhoto) !!}" alt="img">
                     </a>
                     <a href="#!" @if(!isset($record[0]->secondPhoto)) class="nothing" @endif>
-                        <img src="data:image/png;base64,{!! base64_encode($record[0]->thirdPhoto) !!}">
+                        <img src="data:image/png;base64,{!! base64_encode($record[0]->thirdPhoto) !!}" alt="img">
                     </a>
                 </div>
             </div>

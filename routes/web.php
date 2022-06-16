@@ -56,11 +56,15 @@ Route::get('exit', 'usersController@exit')->name('exit');
 Route::get('basket', 'basketController@basket')->name('basket');
 
 Route::post('addToBasket/{id}','basketController@add')->name('addToBasket');
+Route::post('addToBasketTurn/{id}','basketController@addTurn')->name('addToBasketTurn');
 
 Route::post('dellBuy', 'basketController@dellBuy')->name('dellBuy');
+
 Route::post('dellOne/{id}', 'basketController@dellOne')->name('dellOne');
+Route::post('dellOneTurn/{id}', 'basketController@dellOneTurn')->name('dellOneTurn');
 
 Route::post('numberBasket/{id}', 'basketController@numberBasket')->name('numberBasket');
+Route::post('numberBasketTurn/{id}', 'basketController@numberBasketTurn')->name('numberBasketTurn');
 
 Route::get('/great', function () {
     return view('great');

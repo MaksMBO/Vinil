@@ -25,6 +25,12 @@ class turntablesController extends Controller
     }
 
     public function page($id){
-        return "aboba";
+        return view("information_page-turnt", ['turntable' => Turntables::where('id', '=', $id)
+            ->get(),
+            'anothers' => Turntables::where('id', '<>', $id)
+                ->inRandomOrder()
+                ->take(3)
+                ->get()]);
+
     }
 }

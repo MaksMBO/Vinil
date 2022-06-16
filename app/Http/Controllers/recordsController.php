@@ -192,7 +192,7 @@ class recordsController extends Controller
         return view("information_page", ['record' => Record::join('artists', 'records.artist', '=', 'artists.id_artist')
             ->join('albums', 'records.album', '=', 'albums.id_albums')
             ->where('id', '=', $id)
-            ->paginate(8),
+            ->get(),
             'anothers' => Record::join('artists', 'records.artist', '=', 'artists.id_artist')
             ->join('albums', 'records.album', '=', 'albums.id_albums')
             ->where('id', '<>', $id)
