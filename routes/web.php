@@ -31,15 +31,16 @@ Route::post('/register/signup', 'usersController@submit')->name('signup');
 
 Route::post('/login/signin', 'usersController@allData')->name('signin');
 
-Route::get("/lending", 'TurntablesController@turntablesForLending')->name('lending');
+Route::get("/lending", 'turntablesController@turntablesForLending')->name('lending');
 
-Route::get('/turntables', 'TurntablesController@turntablesAll')->name('turntables');
+Route::get('/turntables', 'turntablesController@turntablesAll')->name('turntables');
 
-Route::get('/turntables/search', 'TurntablesController@turntablesSearch')->name('turntablesSearch');
+Route::post('/turntables/search', 'turntablesController@turntablesSearchss')->name('turntablesSearch');
 
 Route::get('/records', 'recordsController@recordsAll')->name('records');
 
 Route::get('records/checkboxes', 'recordsController@checkboxes')->name('checkboxes');
+Route::get('records/checkboxesTurn', 'turntablesController@checkboxesTurn')->name('checkboxesTurn');
 Route::get('records/checkboxes{id}', 'recordsController@checkboxess')->name('checkboxess');
 
 Route::get('records/{id}', 'recordsController@page')->name('recordPage');

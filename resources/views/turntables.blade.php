@@ -28,7 +28,9 @@
     </div>
 </div>
 
+
 @include('layouts.turntables.turntablesFilter')
+
 
 <section class="turntable_section">
     <div class="container">
@@ -53,7 +55,8 @@
                                     <p class="price__number">{{ $turntable->price }} грн</p>
                                     <div class="button_buy-pic">
                                         <button class="button__buy">
-                                            <a href="{{ route('turntablePage', $turntable->id) }}" class="section__purchase">
+                                            <a href="{{ route('turntablePage', $turntable->id) }}"
+                                               class="section__purchase">
                                                 Купити</a>
                                         </button>
                                     </div>
@@ -81,6 +84,7 @@
 
 @include('layouts.turntables.firstContainerTurntables')
 @include('layouts.turntables.secondContainerTurntables')
+
 
 @section('footer')
     @extends('layouts.footer')

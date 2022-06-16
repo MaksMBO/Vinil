@@ -34,14 +34,14 @@ class recordsController extends Controller
 
 
         if(isset($genre)) {
-            $idGenreTable = Genre::whereIn('genreName', $genre)->paginate(8);
+            $idGenreTable = Genre::whereIn('genreName', $genre)->get();
 
             $idGenre = array();
             foreach ($idGenreTable as $item) {
                 $idGenre[] = $item->id;
             }
 
-            $idAlbumTable = AlbumGenre::select('albumId')->whereIn('genreId', $idGenre)->paginate(8);
+            $idAlbumTable = AlbumGenre::select('albumId')->whereIn('genreId', $idGenre)->get();
 
             $idAlbum = array();
             foreach ($idAlbumTable as $item) {

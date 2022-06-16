@@ -103,7 +103,7 @@
 
                 <hr width="100%" size="2" color="#AFAFAF" class="lines-first"/>
                 <div class="basket__logo">
-                    <img src="./image/svg/icon_basket.svg" alt="Basket" class="basket__logo-pic">
+                    <img src="{{asset('./image/svg/icon_basket.svg')}}" alt="Basket" class="basket__logo-pic">
 
                     <div class="price">
                         <a href="#!" class="basket-link">0.00 грн</a>

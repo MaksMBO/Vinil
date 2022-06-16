@@ -26,7 +26,7 @@
                             {{ $buy->title }}
                         </p>
                     </div>
-{{--                    {{ dd(session("countRecord.$buy->id")) }}--}}
+
                     <form class="second__description" method="post" action="{{ route('numberBasket', $buy->id) }}">
                         @csrf
 

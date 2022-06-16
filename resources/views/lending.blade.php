@@ -61,7 +61,7 @@
                                 <p class="price__number">{{ $turntable->price }} грн</p>
                                 <div class="button_buy-pic">
                                     <button class="button__buy">
-                                        <a href="{{ route('information') }}" class="section__purchase">
+                                        <a href="{{ route('turntablePage', $turntable->id) }}" class="section__purchase">
                                             Купити</a>
                                     </button>
                                 </div>
@@ -70,16 +70,7 @@
                     </div>
                 </div>
             @endforeach
-
-
         </div>
-        {{--        <div class="page__number">--}}
-        {{--            <img src="./image/svg/Polygon left.svg" alt="left" class="number">--}}
-        {{--            <a href="#!" class="number active">1</a>--}}
-        {{--            <a href="#!" class="number">2</a>--}}
-        {{--            <a href="#!" class="number">3</a>--}}
-        {{--            <img src="./image/svg/Polygon right.svg" alt="right" class="number">--}}
-        {{--        </div>--}}
     </div>
 </section>
 
@@ -132,13 +123,6 @@
 
             @endforeach
         </div>
-        {{--        <div class="page__number">--}}
-        {{--            <img src="./image/svg/Polygon left.svg" alt="left" class="number">--}}
-        {{--            <a href="#!" class="number active">1</a>--}}
-        {{--            <a href="#!" class="number">2</a>--}}
-        {{--            <a href="#!" class="number">3</a>--}}
-        {{--            <img src="./image/svg/Polygon right.svg" alt="right" class="number">--}}
-        {{--        </div>--}}
     </div>
 </section>
 

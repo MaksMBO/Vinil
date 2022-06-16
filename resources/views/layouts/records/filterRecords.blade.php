@@ -264,7 +264,9 @@
                             </div>
 
                             <div class="search">
-                                <form class="my__search" method="get" action="records.php" id="searchform">
+                                <form class="my__search" method="post" action="{{ route("recordsSearch") }}"
+                                      id="searchform">
+                                    @csrf
                                     <input type="search" name="search">
                                     <img src="{{asset('./image/svg/details/Search.svg')}}" alt="search">
                                 </form>
@@ -275,21 +277,21 @@
 
                     <div class="div">
                         <form action="{{ route('checkboxes') }}" method="get">
-                        <br>
-                        <hr width="100%" size="2" color="#AFAFAF" class="lines-first"/>
+                            <br>
+                            <hr width="100%" size="2" color="#AFAFAF" class="lines-first"/>
 
-                        <input type="checkbox" class="mobile_genre-checkbox" id="mobile_genre" name="mobile_genre"
-                               value="yes">
-                        <label for="mobile_genre" class="label_genre">
-                            <div class="clickss">
-                                <p>Жанр</p>
-                                <img src="{{asset('./image/jpg/click.png')}}" alt="click">
-                                <img src="{{asset('./image/jpg/click_active.png')}}" alt="click_active">
-                            </div>
-                        </label>
+                            <input type="checkbox" class="mobile_genre-checkbox" id="mobile_genre" name="mobile_genre"
+                                   value="yes">
+                            <label for="mobile_genre" class="label_genre">
+                                <div class="clickss">
+                                    <p>Жанр</p>
+                                    <img src="{{asset('./image/jpg/click.png')}}" alt="click">
+                                    <img src="{{asset('./image/jpg/click_active.png')}}" alt="click_active">
+                                </div>
+                            </label>
 
 
-                        <div class="genre"><br>
+                            <div class="genre"><br>
 
                                 <div class="divs">
                                     <label>
@@ -430,99 +432,100 @@
                                     <p>Саундтрек</p><br>
                                 </div>
 
-                        </div>
-
-                        <hr width="100%" size="2" color="#AFAFAF" class="lines"/>
-
-                        <input type="checkbox" class="mobile_amount-checkbox" id="mobile_amount" name="mobile_amount"
-                               value="yes">
-                        <label for="mobile_amount" class="label_amount">
-                            <div class="clickss">
-                                <p>Кількість</p>
-                                <img src="{{asset('./image/jpg/click.png')}}" alt="click">
-                                <img src="{{asset('./image/jpg/click_active.png')}}" alt="click_active">
-                            </div>
-                        </label>
-
-
-                        <div class="amount"><br>
-                            <div class="divs">
-                                <label>
-                                    <input type="checkbox" value="1" name="amount[]"
-                                           @if(in_array("1", $amount)) checked @endif>
-                                </label>
-                                <p>1</p> <br>
                             </div>
 
-                            <div class="divs">
-                                <label>
-                                    <input type="checkbox" value="2" name="amount[]"
-                                           @if(in_array("2", $amount)) checked @endif>
-                                </label>
-                                <p>2</p><br>
+                            <hr width="100%" size="2" color="#AFAFAF" class="lines"/>
+
+                            <input type="checkbox" class="mobile_amount-checkbox" id="mobile_amount"
+                                   name="mobile_amount"
+                                   value="yes">
+                            <label for="mobile_amount" class="label_amount">
+                                <div class="clickss">
+                                    <p>Кількість</p>
+                                    <img src="{{asset('./image/jpg/click.png')}}" alt="click">
+                                    <img src="{{asset('./image/jpg/click_active.png')}}" alt="click_active">
+                                </div>
+                            </label>
+
+
+                            <div class="amount"><br>
+                                <div class="divs">
+                                    <label>
+                                        <input type="checkbox" value="1" name="amount[]"
+                                               @if(in_array("1", $amount)) checked @endif>
+                                    </label>
+                                    <p>1</p> <br>
+                                </div>
+
+                                <div class="divs">
+                                    <label>
+                                        <input type="checkbox" value="2" name="amount[]"
+                                               @if(in_array("2", $amount)) checked @endif>
+                                    </label>
+                                    <p>2</p><br>
+                                </div>
+
+                                <div class="divs">
+                                    <label>
+                                        <input type="checkbox" value="3" name="amount[]"
+                                               @if(in_array("3", $amount)) checked @endif>
+                                    </label>
+                                    <p>3</p><br>
+                                </div>
+
+                                <div class="divs">
+                                    <label>
+                                        <input type="checkbox" value="4" name="amount[]"
+                                               @if(in_array("4", $amount)) checked @endif>
+                                    </label>
+                                    <p>4</p><br>
+                                </div>
+
+                                <div class="divs">
+                                    <label>
+                                        <input type="checkbox" value="5" name="amount[]"
+                                               @if(in_array("5", $amount)) checked @endif>
+                                    </label>
+                                    <p>5</p><br>
+                                </div>
+
+                                <div class="divs">
+                                    <label>
+                                        <input type="checkbox" value="10" name="amount[]"
+                                               @if(in_array("10", $amount)) checked @endif>
+                                    </label>
+                                    <p>10</p><br>
+                                </div>
                             </div>
 
-                            <div class="divs">
-                                <label>
-                                    <input type="checkbox" value="3" name="amount[]"
-                                           @if(in_array("3", $amount)) checked @endif>
-                                </label>
-                                <p>3</p><br>
+
+                            <hr width="100%" size="2" color="#AFAFAF" class="lines"/>
+
+                            <input type="checkbox" class="mobile_price-checkbox" id="mobile_price" name="mobile_price"
+                                   value="yes">
+                            <label for="mobile_price" class="label_price">
+                                <div class="clickss">
+                                    <p>Ціна</p>
+                                    <img src="{{asset('./image/jpg/click.png')}}" alt="click">
+                                    <img src="{{asset('./image/jpg/click_active.png')}}" alt="click_active">
+                                </div>
+                            </label>
+
+
+                            <div class="price"><br>
+                                <div class="price_menu-mobile">
+                                    <label>
+                                        <input type="text" class="start" name="start" value={{$start}}>
+                                    </label>
+                                    <img src="{{asset('./image/svg/details/Line 1.svg')}}" alt="line">
+                                    <label>
+                                        <input type="text" class="end" name="end" value={{$end}}>
+                                    </label>
+                                    <button class="ok">ОК</button>
+                                </div>
                             </div>
 
-                            <div class="divs">
-                                <label>
-                                    <input type="checkbox" value="4" name="amount[]"
-                                           @if(in_array("4", $amount)) checked @endif>
-                                </label>
-                                <p>4</p><br>
-                            </div>
-
-                            <div class="divs">
-                                <label>
-                                    <input type="checkbox" value="5" name="amount[]"
-                                           @if(in_array("5", $amount)) checked @endif>
-                                </label>
-                                <p>5</p><br>
-                            </div>
-
-                            <div class="divs">
-                                <label>
-                                    <input type="checkbox" value="10" name="amount[]"
-                                           @if(in_array("10", $amount)) checked @endif>
-                                </label>
-                                <p>10</p><br>
-                            </div>
-                        </div>
-
-
-                        <hr width="100%" size="2" color="#AFAFAF" class="lines"/>
-
-                        <input type="checkbox" class="mobile_price-checkbox" id="mobile_price" name="mobile_price"
-                               value="yes">
-                        <label for="mobile_price" class="label_price">
-                            <div class="clickss">
-                                <p>Ціна</p>
-                                <img src="{{asset('./image/jpg/click.png')}}" alt="click">
-                                <img src="{{asset('./image/jpg/click_active.png')}}" alt="click_active">
-                            </div>
-                        </label>
-
-
-                        <div class="price"><br>
-                            <div class="price_menu-mobile">
-                                <label>
-                                    <input type="text" class="start" name="start" value={{$start}}>
-                                </label>
-                                <img src="{{asset('./image/svg/details/Line 1.svg')}}" alt="line">
-                                <label>
-                                    <input type="text" class="end" name="end" value={{$end}}>
-                                </label>
-                                <button class="ok">ОК</button>
-                            </div>
-                        </div>
-
-                        <hr width="100%" size="2" color="#AFAFAF" class="lines"/>
+                            <hr width="100%" size="2" color="#AFAFAF" class="lines"/>
                         </form>
                     </div>
 

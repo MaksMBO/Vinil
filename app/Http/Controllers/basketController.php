@@ -149,7 +149,6 @@ class basketController extends Controller
         }
 
 
-
         foreach (session('id') as $key => $item) {
 
             if ($item == $id) {
