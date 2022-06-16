@@ -36,9 +36,6 @@
                     @else
                         <a href="{{ route('login') }}" class="exit__link-input">Будь ласка, зайдіть в систему</a>
                     @endif
-
-
-
                 </div>
 
             </div>
@@ -102,7 +99,7 @@
                 @yield('records_page')
 
                 <hr width="100%" size="2" color="#AFAFAF" class="lines-first"/>
-                <a href="#!" class="nav__link">Контакти</a>
+                @yield('footers')
 
                 <hr width="100%" size="2" color="#AFAFAF" class="lines-first"/>
                 <div class="basket__logo">

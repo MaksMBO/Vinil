@@ -69,7 +69,8 @@ class basketController extends Controller
         session(['price' => null]);
         session(["countRecord" => null]);
         session(['id' => null]);
-        return view('lending', ['turntables' => Turntables::inRandomOrder()->take(3)->get()]);
+        return redirect()->route('great');
+
     }
 
     public function dellOne($id)

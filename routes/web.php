@@ -60,3 +60,7 @@ Route::post('dellBuy', 'basketController@dellBuy')->name('dellBuy');
 Route::post('dellOne/{id}', 'basketController@dellOne')->name('dellOne');
 
 Route::post('numberBasket/{id}', 'basketController@numberBasket')->name('numberBasket');
+
+Route::get('/great', function () {
+    return view('great');
+})->name('great');

@@ -44,41 +44,42 @@
         <div class="row row-cols-3">
 
             @foreach($turntables as $turntable)
-            <div class="col-xxl col-xl col-md-6 col-sm-4 col-4">
-                <div class="about__item">
-                    <div class="about__card-turntable">
-                        <div class="images__turntable">
-                            <img src="data:image/png;base64,{!! base64_encode($turntable->mainPhoto) !!}" alt="thorens" class="images ">
+                <div class="col-xxl col-xl col-md-6 col-sm-4 col-4">
+                    <div class="about__item">
+                        <div class="about__card-turntable">
+                            <div class="images__turntable">
+                                <img src="data:image/png;base64,{!! base64_encode($turntable->mainPhoto) !!}"
+                                     alt="thorens" class="images ">
 
 
-                        </div>
-                        <div class="items">
-                            <h4 class="manufacturer">{{ $turntable->brend }}</h4>
-                            <p class="information__about">{{ $turntable->subText }}</p>
-                        </div>
-                        <div class="section__price">
-                            <p class="price__number">{{ $turntable->price }} грн</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
+                            </div>
+                            <div class="items">
+                                <h4 class="manufacturer">{{ $turntable->brend }}</h4>
+                                <p class="information__about">{{ $turntable->subText }}</p>
+                            </div>
+                            <div class="section__price">
+                                <p class="price__number">{{ $turntable->price }} грн</p>
+                                <div class="button_buy-pic">
+                                    <button class="button__buy">
+                                        <a href="{{ route('information') }}" class="section__purchase">
+                                            Купити</a>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
 
 
         </div>
-        <div class="page__number">
-            <img src="./image/svg/Polygon left.svg" alt="left" class="number">
-            <a href="#!" class="number active">1</a>
-            <a href="#!" class="number">2</a>
-            <a href="#!" class="number">3</a>
-            <img src="./image/svg/Polygon right.svg" alt="right" class="number">
-        </div>
+        {{--        <div class="page__number">--}}
+        {{--            <img src="./image/svg/Polygon left.svg" alt="left" class="number">--}}
+        {{--            <a href="#!" class="number active">1</a>--}}
+        {{--            <a href="#!" class="number">2</a>--}}
+        {{--            <a href="#!" class="number">3</a>--}}
+        {{--            <img src="./image/svg/Polygon right.svg" alt="right" class="number">--}}
+        {{--        </div>--}}
     </div>
 </section>
 
@@ -99,222 +100,45 @@
             <h2 class="section__title">Вiнiловi платiвки</h2>
         </div>
         <div class="row row-cols-4">
-            <div class="col">
-                <div class="album__all">
-                    <div class="about__albums__item">
-                        <div class="images__albums">
-                            <a href="{{ route('information') }}">
-                                <img src="./image/svg/albums/frank-sinatra-ultima 1.svg" alt="sinatra">
-                            </a>
-                        </div>
+            @foreach($records as $record)
 
-                        <div class="items">
-                            <p class="information__about__albums">Frank Sinatra - Ultimate Christmas</p>
-                        </div>
-
-                        <div class="section__price">
-                            <p class="price__number">1 650грн.</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
+                <div class="col c1">
+                    <div class="album__all">
+                        <div class="about__albums__item">
+                            <div class="images__albums">
+                                <a href="{{ route('recordPage', $record->id) }}">
+                                    <img src="data:image/png;base64,{!! base64_encode($record->mainPhoto) !!}"
+                                         alt="sinatra">
+                                </a>
                             </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <div class="items">
+                                <p class="information__about__albums">{{ $record->name }} - {{ $record->title }}</p>
+                            </div>
 
-            <div class="col">
-                <div class="album__all">
-                    <div class="about__albums__item">
-                        <div class="images__albums">
-                            <a href="{{ route('information') }}">
-                                <img src="./image/svg/albums/Nirvana.svg" alt="Nirvana">
-                            </a>
-                        </div>
+                            <div class="section__price">
+                                <p class="price__number">{{ $record->price }} грн.</p>
+                                <div class="button_buy-pic">
+                                    <button class="button__buy">
+                                        <a href="{{ route('recordPage', $record->id) }}" class="section__purchase">
+                                            Купити</a>
+                                    </button>
+                                </div>
 
-                        <div class="items">
-                            <p class="information__about__albums">Nirvana – Feels Like The First Time</p>
-                        </div>
-
-                        <div class="section__price">
-                            <p class="price__number">1 899грн.</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col">
-                <div class="album__all">
-                    <div class="about__albums__item">
-                        <div class="images__albums">
-                            <a href="{{ route('information') }}">
-                                <img src="./image/svg/albums/pink floyd.svg" alt="pink floyd">
-                            </a>
-                        </div>
-
-                        <div class="items">
-                            <p class="information__about__albums">Pink Floyd - The Dark Side Of The Moon</p>
-                        </div>
-
-                        <div class="section__price">
-                            <p class="price__number">1 500грн.</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="album__all">
-                    <div class="about__albums__item">
-                        <div class="images__albums">
-                            <a href="{{ route('information') }}">
-                                <img src="./image/svg/albums/tyler-the-creator-ig 1.svg" alt="tyler-the-creator">
-                            </a>
-                        </div>
-
-                        <div class="items">
-                            <p class="information__about__albums">Tyler, The Creator - Igor</p>
-                        </div>
-
-                        <div class="section__price">
-                            <p class="price__number">1 350грн.</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="album__all">
-                    <div class="about__albums__item">
-                        <div class="images__albums">
-                            <a href="{{ route('information') }}">
-                                <img src="./image/svg/albums/The Weeknd.svg" alt="The Weeknd">
-                            </a>
-                        </div>
-
-                        <div class="items">
-                            <p class="information__about__albums">The Weeknd - Starboy</p>
-                        </div>
-
-                        <div class="section__price">
-                            <p class="price__number">1 899грн.</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="album__all">
-                    <div class="about__albums__item">
-                        <div class="images__albums">
-                            <a href="{{ route('information') }}">
-                                <img src="./image/svg/albums/zemfira-zemfira-vend 1.svg" alt="zemfira">
-                            </a>
-                        </div>
-
-                        <div class="items">
-                            <p class="information__about__albums">Земфира - Вендетта</p>
-                        </div>
-
-                        <div class="section__price">
-                            <p class="price__number">1 950грн.</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="album__all">
-                    <div class="about__albums__item">
-                        <div class="images__albums">
-                            <a href="{{ route('information') }}">
-                                <img src="./image/svg/albums/Adele.svg" alt="Adele">
-                            </a>
-                        </div>
-
-                        <div class="items">
-                            <p class="information__about__albums">Adele - 21</p>
-                        </div>
-
-                        <div class="section__price">
-                            <p class="price__number">1 150грн.</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="album__all">
-                    <div class="about__albums__item">
-                        <div class="images__albums">
-                            <a href="{{ route('information') }}">
-                                <img src="./image/svg/albums/three-days-grace-out 1.svg" alt="three-days-grace">
-                            </a>
-                        </div>
-
-                        <div class="items">
-                            <p class="information__about__albums">Three Days Grace - Outsider </p>
-                        </div>
-
-                        <div class="section__price">
-                            <p class="price__number">1 450грн.</p>
-                            <div class="button_buy-pic">
-                                <button class="button__buy">
-                                    <a href="{{ route('information') }}" class="section__purchase">
-                                        Купити</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
-        <div class="page__number">
-            <img src="./image/svg/Polygon left.svg" alt="left" class="number">
-            <a href="#!" class="number active">1</a>
-            <a href="#!" class="number">2</a>
-            <a href="#!" class="number">3</a>
-            <img src="./image/svg/Polygon right.svg" alt="right" class="number">
-        </div>
+        {{--        <div class="page__number">--}}
+        {{--            <img src="./image/svg/Polygon left.svg" alt="left" class="number">--}}
+        {{--            <a href="#!" class="number active">1</a>--}}
+        {{--            <a href="#!" class="number">2</a>--}}
+        {{--            <a href="#!" class="number">3</a>--}}
+        {{--            <img src="./image/svg/Polygon right.svg" alt="right" class="number">--}}
+        {{--        </div>--}}
     </div>
 </section>
 
