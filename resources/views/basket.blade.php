@@ -15,8 +15,11 @@
 
             @foreach(session('buy') as $buy)
                 <div class="one__basket">
-                    <img src="data:image/png;base64,{!! base64_encode($buy->mainPhoto) !!}" alt="image_basket"
-                         class="icon__basket">
+                    <div class="this__image">
+                        <img src="data:image/png;base64,{!! base64_encode($buy->mainPhoto) !!}" alt="image_basket"
+                             class="icon__basket">
+                    </div>
+
                     <div class="description">
                         <p class="title__basket">{{ $buy->name }}</p>
                         <p class="subtitle__basket">
@@ -28,7 +31,7 @@
                         @csrf
                         {{--                        {{ dd( session("countRecord.$buy->id") == null) }}--}}
                         <p class="title__basket">Кількість</p>
-                        <label>
+                        <label class="checc">
                             <select name="user_profile_color_1" onchange="this.form.submit()">
                                 <option
                                     @if(session("countRecord.$buy->id") == null or session("countRecord.$buy->id")[0] == 1 ) selected

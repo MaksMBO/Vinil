@@ -43,6 +43,7 @@ Route::get('records/checkboxes', 'recordsController@checkboxes')->name('checkbox
 Route::get('records/checkboxes{id}', 'recordsController@checkboxess')->name('checkboxess');
 
 Route::get('records/{id}', 'recordsController@page')->name('recordPage');
+Route::get('turntable/{id}', 'turntablesController@page')->name('turntablePage');
 
 Route::post('records/search', 'recordsController@search')->name('recordsSearch');
 

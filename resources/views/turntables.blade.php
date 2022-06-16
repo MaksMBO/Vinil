@@ -37,12 +37,13 @@
 
             @if(count($turntables))
 
-            @foreach($turntables as $turntable)
+                @foreach($turntables as $turntable)
                     <div class="col">
                         <div class="about__item">
                             <div class="about__card-turntable">
                                 <div class="images__turntable">
-                                    <img src="data:image/png;base64,{!! base64_encode($turntable->mainPhoto) !!}" alt="thorens" class="images ">
+                                    <img src="data:image/png;base64,{!! base64_encode($turntable->mainPhoto) !!}"
+                                         alt="thorens" class="images ">
                                 </div>
                                 <div class="items">
                                     <h4 class="manufacturer">{{ $turntable->brend }}</h4>
@@ -52,7 +53,7 @@
                                     <p class="price__number">{{ $turntable->price }} грн</p>
                                     <div class="button_buy-pic">
                                         <button class="button__buy">
-                                            <a href="{{ route('information') }}" class="section__purchase">
+                                            <a href="{{ route('turntablePage', $turntable->id) }}" class="section__purchase">
                                                 Купити</a>
                                         </button>
                                     </div>
@@ -60,23 +61,20 @@
                             </div>
                         </div>
                     </div>
-            @endforeach
-
-                <div class="section__show_all">
-                    <button class="button__show_all">
-                        <a href="#!" class="section__show_all">Завантажити ще</a>
-                    </button>
-                </div>
-
-            @else
-
-                <div class="error">Нажаль в нас немає такого програвача :(</div>
-
-            @endif
-
-
+                @endforeach
 
         </div>
+        <div class="container">
+            <div class="my_center">
+                {{ $turntables->links() }}
+            </div>
+        </div>
+
+        @else
+
+            <div class="error">Нажаль в нас немає такого програвача :(</div>
+
+        @endif
     </div>
 </section>
 

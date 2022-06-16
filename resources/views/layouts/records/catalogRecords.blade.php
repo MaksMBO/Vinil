@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row row-cols-4">
 
+            @if(count($records))
             @foreach($records as $record)
 
                 <div class="col c1">
@@ -41,6 +42,10 @@
                 {{ $records->links() }}
             </div>
         </div>
+
+        @else
+            <div class="error">Нажаль в нас немає таких платівок :(</div>
+        @endif
 
     </div>
 </section>

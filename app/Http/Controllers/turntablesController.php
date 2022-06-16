@@ -16,11 +16,15 @@ class turntablesController extends Controller
     }
 
     public function turntablesAll() {
-        return view("turntables", ['turntables' => Turntables::take(9)->get()]);
+        return view("turntables", ['turntables' => Turntables::paginate(3)]);
     }
 
     public function turntablesSearch(Request $request) {
         $turntable = $request->search__turntables;
         return view("turntables", ['turntables' => Turntables::whereRaw("`brend` LIKE '$turntable' OR `subText` LIKE '$turntable'")->get()]);
+    }
+
+    public function page($id){
+        return "aboba";
     }
 }
