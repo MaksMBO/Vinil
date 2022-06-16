@@ -21,6 +21,8 @@ class basketController extends Controller
             ->join('albums', 'records.album', '=', 'albums.id_albums')
             ->where('id', '=', $id)->get();
 
+        $thisPrice = Record::select('price')->where('id', '=', $id)->get()[0]["price"];
+
         session()->push("buy", $record[0]);
 
         $result = [];
@@ -37,16 +39,22 @@ class basketController extends Controller
         session(['buy' => null]);
 
 
-        $price = 0;
+
         foreach ($result as $res) {
             session()->push("buy", $res);
-            $price += $res->price;
         }
 
-//        return dd($price, session('buy'));
+
+
+        if (session('price') !== null){
+            $price = session('price')[0];
+        }
+        else{
+            $price = 0;
+        }
+        $price += $thisPrice;
         session(['price' => null]);
         session()->push('price', $price);
-
 
 
 
@@ -56,6 +64,7 @@ class basketController extends Controller
     public function dellBuy() {
         session(['buy' => null]);
         session(['price' => null]);
+        session(["countRecord" => null]);
         return view('lending', ['turntables' => Turntables::inRandomOrder()->take(3)->get()]);
     }
 
@@ -78,6 +87,36 @@ class basketController extends Controller
         foreach ($result as $res) {
             session()->push("buy", $res);
         }
+
+        return view('basket');
+    }
+
+    public function numberBasket($id, Request $request){
+        $count = $request->input('user_profile_color_1');
+        $record = Record::join('artists', 'records.artist', '=', 'artists.id_artist')
+            ->join('albums', 'records.album', '=', 'albums.id_albums')
+            ->where('id', '=', $id)->get()[0];
+
+        $priceRecord = $record->price;
+
+        $price = session('price')[0];
+
+        if (session("countRecord.$id") == null) {
+            $price -= $priceRecord;
+        }
+        else {
+            $price -= $priceRecord * session("countRecord.$id")[0];
+        }
+        $price += $priceRecord * $count;
+
+        session(['price' => null]);
+        session()->push('price', $price);
+
+        session(['countRecord' =>
+            [
+                "$id" => null
+            ]]);
+        session()->push("countRecord.$id", $count);
 
         return view('basket');
     }

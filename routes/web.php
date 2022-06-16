@@ -40,6 +40,7 @@ Route::get('/turntables/search', 'TurntablesController@turntablesSearch')->name(
 Route::get('/records', 'recordsController@recordsAll')->name('records');
 
 Route::get('records/checkboxes', 'recordsController@checkboxes')->name('checkboxes');
+Route::get('records/checkboxes{id}', 'recordsController@checkboxess')->name('checkboxess');
 
 Route::get('records/{id}', 'recordsController@page')->name('recordPage');
 
@@ -57,3 +58,5 @@ Route::post('addToBasket/{id}','basketController@add')->name('addToBasket');
 
 Route::post('dellBuy', 'basketController@dellBuy')->name('dellBuy');
 Route::post('dellOne/{id}', 'basketController@dellOne')->name('dellOne');
+
+Route::post('numberBasket/{id}', 'basketController@numberBasket')->name('numberBasket');

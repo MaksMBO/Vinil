@@ -34,21 +34,12 @@
 
             @endforeach
 
-
-
-            {{--            <div class="section__show_all">--}}
-            {{--                <button class="button__show_all">--}}
-            {{--                    <a href="#!" class="section__show_all">Завантажити ще</a>--}}
-            {{--                </button>--}}
-            {{--            </div>--}}
         </div>
+
         <div class="container">
             <div class="my_center">
-
-                    {{ $records->links() }}
-
+                {{ $records->links() }}
             </div>
-
         </div>
 
     </div>

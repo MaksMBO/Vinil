@@ -28,7 +28,7 @@
             <h2 class="intro_-title-second">Будь найкращим разом з нами</h2>
 
             <button class="button_more">
-                <a href="#!" class="purchase">
+                <a href="{{ route('records') }}" class="purchase">
                     Детальніше</a>
             </button>
         </div>
@@ -87,7 +87,7 @@
         <h1 class="intro__programmers-title-first">Не знайшов потрібного програвача?</h1>
 
         <button class="button_more__catalog">
-            <a href="turntables.blade.php" class="purchase__catalog">
+            <a href="{{ route('turntables') }}" class="purchase__catalog">
                 До катологу</a>
         </button>
     </div>
@@ -323,7 +323,7 @@
         <h1 class="intro__programmers-title-first">Будемо раді допомогти вам знайти записи!</h1>
 
         <button class="button_more__catalog">
-            <a href="records.blade.php" class="purchase__catalog">
+            <a href="{{ route('records') }}" class="purchase__catalog">
                 До катологу</a>
         </button>
     </div>

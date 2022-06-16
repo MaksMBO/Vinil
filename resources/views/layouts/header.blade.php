@@ -34,7 +34,7 @@
                         <a href="{{ route("basket") }}" class="my__linkss-default">Кошик</a>
                         <a href="{{ route('exit') }}" class="exit__link-exit">Вихід з системи</a>
                     @else
-                        <a href="{{ route('login') }}" class="exit__link-input">Будь ласка, ввійдіть в систему</a>
+                        <a href="{{ route('login') }}" class="exit__link-input">Будь ласка, зайдіть в систему</a>
                     @endif
 
 
