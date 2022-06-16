@@ -17,12 +17,18 @@
                 <h1 class="title__sell">{{ $record[0]->name }} - {{ $record[0]->title }}</h1>
                 <p class="subtitle__sell">{{ $record[0]->price }}грн.</p>
                 <div class="divbutton__sell">
+                    @if (session('user') !== null)
                     <form method="post" action="{{ route('addToBasket', $record[0]->id) }}">
                         @csrf
                         <button class="button__sell">
                             <p class="sell_link">Купити</p>
                         </button>
                     </form>
+                    @else
+                        <button class="button__sell">
+                            <a href="{{route('login')}}" class="sell_link">Купити</a>
+                        </button>
+                    @endif
 
                 </div>
                 <div class="tracklist">
