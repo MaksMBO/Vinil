@@ -128,14 +128,21 @@ class basketController extends Controller
             }
         }
 
-        if (session('price') !== null) {
+        if (session('price') != null) {
             $price = session('price')[0];
         } else {
             $price = 0;
         }
 
+        if(session("countRecord.$id") == null) {
+            $temp = 1;
+        }
+        else{
+            $temp = session("countRecord.$id");
+        }
 
-        $price -= session("countRecord.$buy->id") * Record::select('price')->where('id', '=', $id)->get()[0]["price"];
+
+        $price -= $temp * Record::select('price')->where('id', '=', $id)->get()[0]["price"];
 
 
         session(['price' => null]);
@@ -176,8 +183,16 @@ class basketController extends Controller
             $price = 0;
         }
 
+        if (session("countTurn.$id") == null){
+            $temp = 1;
+        }
+        else {
+            $temp = session("countTurn.$id");
+        }
 
-        $price -= session("countTurn.$buy->id") * Turntables::select('price')->where('id', '=', $id)->get()[0]["price"];
+//        return dd(session("countTurn.$id"));
+
+        $price -= $temp * Turntables::select('price')->where('id', '=', $id)->get()[0]["price"];
 
 
         session(['price' => null]);
