@@ -155,6 +155,7 @@ class basketController extends Controller
             session()->push("buy", $res);
         }
 
+        session(["countRecord.$id" => null]);
 
         foreach (session('id') as $key => $item) {
 
@@ -205,10 +206,7 @@ class basketController extends Controller
             session()->push("buyTurn", $res);
         }
 
-        session(['countTurn' =>
-            [
-                "$id" => null
-            ]]);
+        session(["countTurn.$id" => null]);
 
 
         foreach (session('idTurn') as $key => $item) {
