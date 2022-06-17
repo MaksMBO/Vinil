@@ -21,7 +21,7 @@
                         <img src="{{asset('image/svg/icon_basket.svg')}}" alt="Basket" class="basket__logo-pic">
 
                         <div class="price">
-                            <p class="basket-link">0.00 грн</p>
+                            <p class="basket-link">@if(session('price') == null) 0 @else {{ session('price')[0] }} @endif грн</p>
                             <img src="{{asset('image/svg/basket-polygon.svg')}}" alt="Basket polygon"
                                  class="basket-polygon-pic">
                         </div>
@@ -106,7 +106,7 @@
                     <img src="{{asset('./image/svg/icon_basket.svg')}}" alt="Basket" class="basket__logo-pic">
 
                     <div class="price">
-                        <a href="#!" class="basket-link">0.00 грн</a>
+                        <a href="#!" class="basket-link">@if(session('price') == null) 0 @else {{ session('price')[0] }} @endif грн</a>
                         <img src="{{asset('image/svg/basket-polygon.svg')}}" alt="Basket polygon"
                              class="basket-polygon-pic">
                     </div>
